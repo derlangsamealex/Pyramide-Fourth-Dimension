@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pyramide Fourth Dimension</title>
+		<script language="javascript" type="text/javascript" src="Pyramide.js"></script>
+    </head>
+    <body>
+        <button style="position: absolute; top:90%; left:0; width: 100%; height: 10%; border:none; font-size:20px">stop/go</button>
+        <textarea disabled=true style="position: absolute; top:0; left:0; width: 99%; height: 90%; border:none; font-size:10px; resize: none;"></textarea>
+        <script>
+function LogicPolygon(edges) {
+    this.x=edges;
+    this.n=1;
+    this.points=1;
+    this.grow=function() {
+        this.n++;
+        this.points=((this.x-2)*this.n**2+(4-this.x)*this.n)/2;
+    }
+    this.edgesGrow=function() {
+        this.x++;
+        this.n=1;
+        this.grow();
+    }
+}
+function LogicPyramide(edges) {
+    this.x=edges;
+    this.h=1;
+    this.points=1;
+    this.grow=function() {
+        this.h++;
+        this.points=((this.x-2)*this.h**3+3*this.h**2+(5-this.x)*this.h)/6;
+    }
+    this.edgesGrow=function() {
+        this.x++;
+        this.h=1;
+        this.grow();
+    }
+}    
+var lPo=new LogicPolygon(3);
+var lPy=new LogicPyramide(3);
+var tA,btn;
+var bool=true;
+        </script>
+    </body>
+</html>
